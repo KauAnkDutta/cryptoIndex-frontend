@@ -173,6 +173,8 @@ function App() {
           <Route path={`/register`} element={<Register />} />
 
           <Route path={`/login`} element={<Login />} />
+
+          <Route path={`/*`} element={<div>Error 404 Page not found</div>} />
         </Routes>
       </BrowserRouter>
     </div>
