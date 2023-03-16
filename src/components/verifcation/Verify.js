@@ -77,9 +77,7 @@ export default function Verify() {
 
     try {
       await axios
-        .post(`https://cryptoindex-backend.onrender.com/api/verify/${localStorage.getItem("email")}`,token,{
-          withCredentials: true
-        })
+        .post(`https://cryptoindex-backend.onrender.com/api/verify/${localStorage.getItem("email")}`,token)
         .then((res) => {
           toast.success("Verification successfull");
           localStorage.setItem("Access_Token", res.data.accessToken);
