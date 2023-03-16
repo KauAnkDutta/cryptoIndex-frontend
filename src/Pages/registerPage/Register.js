@@ -1,11 +1,13 @@
 import "./register.css";
 import { useState, useContext } from "react";
 import { userContext } from "../../context/authContext";
+import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 export default function Register() {
   const [usernamefocused, setUsernameFocused] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [confirmFocus, setConfirmFocus] = useState(false);
@@ -30,11 +32,13 @@ export default function Register() {
       email: user.email,
       password: user.confirmpassword,
     };
+    setLoading(true)
     try {
       await axios
         .post(`https://cryptoindex-backend.onrender.com/api/register`, new_user)
         .then((res) => {
           toast.success("User Registered Successfully");
+          setLoading(false)
           window.location.href = `/login`;
         })
         .catch((err) => toast.error(err.response.data.msg));
@@ -185,7 +189,7 @@ export default function Register() {
           </div>
 
           <button type="submit" className="register-btn">
-            Sign Up
+          {loading ? <CircularProgress color="black" size={18} /> : "Sign Up"}
           </button>
         </form>
       </div>
