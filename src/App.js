@@ -172,7 +172,7 @@ function App() {
 
           <Route path={`/register`} element={<Register />} />
 
-          <Route path={`https://cryptoindex-frontend.onrender.com/login`} element={<Login />} />
+          <Route path={`/login`} element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
