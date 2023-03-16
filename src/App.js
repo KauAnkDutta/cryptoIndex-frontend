@@ -11,6 +11,12 @@ import Login from "./Pages/login/Login";
 import axios from "axios";
 import { userContext } from "./context/authContext";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
+import {disableReactDevTools} from '@fvilers/disable-react-devtools';
+
+if (process.env.REACT_APP_NODE_ENV === 'production') {
+  disableReactDevTools();
+}
+
 
 function App() {
   let currencies = ["INR", "USD", "EUR", "CNY", "RUB"];
