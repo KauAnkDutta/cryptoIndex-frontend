@@ -1,0 +1,83 @@
+.coin-graph{
+    width: 90%;
+    margin: 1rem auto;
+    padding: .7rem 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #2a2a2b;
+    box-shadow: -1px 1px 14px 3px rgba(0,0,0,0.75);
+    border-radius: 8px;
+    transition: 0.8s;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.time-btn{
+    max-width: 20%;
+    padding: 5px 40px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    border: 2px solid rgb(77, 77, 216);
+    cursor: pointer;
+    background: transparent;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.selected{
+    background: rgb(71, 71, 219);
+}
+
+.chart-container{
+    position: relative;
+    height: 70vh;
+}
+
+/* light theme */
+.coin-graph-light{
+    background-color: rgb(230, 227, 227);
+}
+
+.graph-btn-text-light{
+    color: black;
+}
+/* ----x---- */
+
+@media screen and (max-width: 600px){
+    .time-btn{
+        padding: 5px 10px 5px 10px;
+    }
+}
+
+@media screen and (max-width: 700px){    
+    .chart-container{
+        position: relative;
+        height: 50vh;
+    }
+
+    .time-btn{
+        max-width: 30%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .coin-graph{
+        width: 100%;
+        box-shadow: none;
+        margin: 0;
+    }
+
+    .buttons{
+        justify-content: space-between;
+    }
+    
+    .time-btn{
+        padding: 5px 10px 5px 5px;
+        max-width: 30%;
+    }
+}
+

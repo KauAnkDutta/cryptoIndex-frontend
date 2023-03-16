@@ -1,0 +1,138 @@
+.register-container{
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    padding: 10px 20px;
+    width: 50%;
+    border: 3px solid;
+    border-radius: 5px;
+    box-shadow: -1px 1px 14px 3px rgba(0,0,0,0.75);
+    transition: 0.8s;
+}
+
+.register-light{
+    background: whitesmoke;
+    border: 3px solid black
+}
+
+.register-text-light{
+    color: black;
+}
+
+.register-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-section{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.register-label{
+    font-size: 20px;
+    font-weight: 400; 
+}
+
+.register-input{
+    height: 35px;
+    padding: 0px 10px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.register-input-bg-light{
+    background: darkgray;
+}
+
+.error-msg{
+    color: rgba(244, 21, 21, 0.853);
+    font-size: 12px;
+    display: none;
+}
+
+.register-input:invalid[focused="true"] ~ .error-msg{
+    display: block;
+}
+
+.register-input:invalid[focused="true"]{
+    border: 2px solid rgb(232, 29, 29);
+}
+.register-input:valid[focused="true"]{
+    border: 3px solid rgba(8, 171, 52, 0.794);
+}
+
+.register-btn{
+    padding: 8px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: white;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 56%, #FFCC70 100%);
+    width: 50%;
+    align-self: center;
+    border: none;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 540px){
+    .register-container{
+        margin-top: 0;
+    }
+    
+    .register{
+        width: 100%;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .register-label{
+        font-size: 30px;
+        color: black;
+        font-weight: 500;
+    }
+
+    .register-input{
+        height: 50px;
+        font-size: 20px;
+        background:rgb(38, 37, 37);
+        color: whitesmoke;
+    }
+
+    .register-heading{
+        color: black;
+        font-size: 40px;
+    }
+
+    .error-msg{
+        font-size: 18px; 
+        font-weight: 600;
+    }
+
+    .register-btn{
+        color: black;
+        background: white;
+        border: 3px solid black;
+        border-radius: 5px;
+    }
+
+}

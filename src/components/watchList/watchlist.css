@@ -1,0 +1,164 @@
+.watchlist-head{
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.watchlist-heading{
+    text-align: left;
+    font-size: 25px;
+}
+
+.watchlist-heading-logout{
+    display: flex;
+    gap: 15px;
+}
+
+.logout{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-icon{
+    font-size: 25px;
+    color: rgba(158, 6, 6, 0.839);
+    cursor: pointer;
+}
+
+.logout-tooltip{
+    position: absolute;
+    z-index: 3;
+    background-color: rgb(183, 180, 180);
+    color: black;
+    padding: 5px;
+    font-size: 10px;
+    bottom: -25px;
+    font-weight: 400;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+
+.logout-tooltip::before{
+    content: "";
+    position: absolute;
+    bottom:22px;
+    right: 40%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgb(183, 180, 180) transparent;
+}
+
+.watchlist-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close-icon{
+    color: whitesmoke;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out
+}
+
+.close-icon:hover{
+    transform: scale(1.2);
+}
+
+.watchlist-container{
+    position:fixed;
+    z-index: 3;
+    right: -100%;
+    top: 60px;
+    height: 95vh;
+    background: rgb(1, 2, 21);
+    width: 30%;
+    padding: 10px 20px;
+    overflow-y: scroll;
+    transition: right 0.6s ease-in-out;
+}
+
+.coins_collection{
+    height: 85%;
+    overflow-y: scroll;
+}
+
+.coins_collection::-webkit-scrollbar{
+    display: none;
+}
+
+.show-watchlist{
+    right: 0px;
+}
+
+.watchlist-container::-webkit-scrollbar{
+    display: none;
+}
+
+.added-coin{
+    display: flex;
+    border-radius: 10px;
+    background: rgb(42, 40, 87);
+    cursor: pointer;
+    padding: 10px;
+    gap: 0px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.added-coin-image{
+    width: 50px;
+    height: 100%;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.added-coin-details{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.added-coin-details{
+    flex: 3;
+}
+
+.added-coin-remove-btn{
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.added-coin-remove-btn:hover{
+    transform: scale(1.2);
+}
+
+.empty_msg{
+    height: 50vh;
+    position: relative;
+}
+
+.message{
+    position: absolute;
+    left: 35%;
+    bottom: 50%;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgba(172, 170, 170, 0.535);
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width: 800px){
+    .watchlist-container{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .watchlist-container{
+        width: 100%;
+    }
+}

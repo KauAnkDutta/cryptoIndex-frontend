@@ -1,0 +1,151 @@
+.coin-table-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.coin-table{
+    width: 90%;
+    margin-top: 30px;
+    border-collapse: separate;
+    border-spacing: 0 25px;
+}
+
+.coins-table-heading-row{
+    height: 80px;
+}
+
+.head{
+    text-align: right;
+    padding: 10px;
+}
+
+.head-coin{
+    text-align: left;
+    padding: 10px;
+}
+
+
+.table-coin-data-row{
+    background: rgb(70, 69, 69);
+    cursor: pointer;
+    transition: 0.8s;
+    box-shadow: -1px 1px 14px 3px rgba(0,0,0,0.75);
+}
+
+.table-coin-data-row:hover{
+    transform: scale(1.04);
+    transition: .3s ease-in-out;
+}
+
+.coin-name-img {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.coin-name-symbol{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.coin-symbol{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.coin-name{
+    font-size: 15px;
+    color: rgb(181, 178, 178);
+}
+
+.coin-image{
+    width: 80px;
+    height: 80px;
+}
+
+.coin-price{
+    text-align: right;
+    padding: 0 10px;
+    /* font-weight: 400; */
+}
+
+.coin-profit-loss{
+    text-align: right;
+    padding: 0 10px;
+}
+
+.profit{
+    color: rgb(22, 193, 34);
+}
+
+.loss{
+    color: rgb(244, 5, 5);
+}
+
+.coin-volume{
+    text-align: right;
+    padding: 0 10px;
+}
+
+.coin-market-cap{
+    text-align: right;
+    padding: 0 10px;
+}
+
+.table-body{
+    border-collapse: separate;
+    
+}
+
+/* light theme settings */
+.light-coin-row-bg{
+    background: rgb(230, 227, 227);
+}
+
+.coin-name-light{
+    color: rgb(65, 64, 64);
+}
+
+.coin-light-theme-text{
+    color: black;
+}
+
+/* ----X---- */
+
+@media screen and (max-width: 600px) {
+    .hide {
+        display: none;
+    }
+
+    .coin-name-img {
+        gap: 5px;
+        padding: 5px;
+        width: auto;
+    }
+    
+    .coin-symbol{
+        font-size: 18px;
+    }
+
+    .coin-image{
+        width: 50px;
+        height: 50px;
+    }
+
+    .coin-table-container{
+        overflow-x: auto;
+    }
+    
+}
+
+@media screen and (max-width: 400px){
+    .coin-table{
+        width: 100%;
+        border-spacing: 0 5px;
+    }
+
+}

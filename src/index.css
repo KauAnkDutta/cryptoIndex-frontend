@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Rubik', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #f4f4f4;
+  overflow-x: hidden;
+  min-height: 100vh;
+  /*  */
+  /* background: linear-gradient(351deg, #ffffff, #c0e7ee);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    -o-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite; */
+}
+
+/*  */
+@-webkit-keyframes AnimationName {
+  0%{background-position:43% 0%}
+  50%{background-position:58% 100%}
+  100%{background-position:43% 0%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:43% 0%}
+  50%{background-position:58% 100%}
+  100%{background-position:43% 0%}
+}
+@-o-keyframes AnimationName {
+  0%{background-position:43% 0%}
+  50%{background-position:58% 100%}
+  100%{background-position:43% 0%}
+}
+@keyframes AnimationName {
+  0%{background-position:43% 0%}
+  50%{background-position:58% 100%}
+  100%{background-position:43% 0%}
+}
+/*  */
+body::-webkit-scrollbar{
+  display: none;
+}
+
+a {
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@media screen and (max-width: 550px){
+  body{
+    /* background-image: url('../public/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 25%; */
+  }
+}
