@@ -83,7 +83,7 @@ export default function Verify() {
           toast.success("Verification successfull");
           localStorage.setItem("Access_Token", res.data.accessToken);
           localStorage.removeItem("email");
-          window.location.href = `/`;
+          // window.location.href = `/`;
         });
     } catch (error) {
       toast.error(error.response.data.msg);
