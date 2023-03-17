@@ -28,7 +28,7 @@ export default function Login() {
     setLoading(true);
     try {
       await axios
-        .post(`https://cryptoindex-backend.onrender.com/api/login`, user)
+        .post(`https://cryptoindex-backend.onrender.com/api/login`, user, {withCredentials: true})
         .then((res) => {
           localStorage.setItem("UserLogged", true);
           localStorage.setItem("email", res.data.email);
