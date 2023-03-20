@@ -2,7 +2,7 @@ import "./watchlist.css";
 import { FaTrash } from "react-icons/fa";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { BiLogOutCircle } from "react-icons/bi";
-import { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { userContext } from "../../context/authContext";
@@ -14,7 +14,7 @@ export default function Watchlist({
   addedCoin,
 }) {
   const [showLogutToolTip, setShowLogoutToolTip] = useState(false);
-  const { coins, token } = useContext(userContext);
+  const { coins } = useContext(userContext);
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -31,13 +31,13 @@ export default function Watchlist({
             },
           },
           {
-            headers: { Authorization: token },
+            headers: { Authorization: localStorage.getItem("Access_Token") },
           }
         )
         .then((res) => {
           toast.success(`${coin_name} is removed`);
-          if(res.status === 200){
-            setAddedCoin(addedCoin.filter(obj => obj.name !== coin_name))
+          if (res.status === 200) {
+            setAddedCoin(addedCoin.filter((obj) => obj.name !== coin_name));
           }
         });
     } catch (error) {
@@ -45,17 +45,11 @@ export default function Watchlist({
     }
   };
 
-  const logoutHandler = async () => {
-    try {
-      await axios.get(`https://cryptoindex-backend.onrender.com/api/logout`).then((res) => {
-        toast.success("Logout Successfully");
-        localStorage.removeItem("UserLogged");
-        localStorage.removeItem("Access_Token");
-        window.location.reload();
-      });
-    } catch (error) {
-      toast.error(error.response.msg);
-    }
+  const logoutHandler = () => {
+    toast.success("Logout Successfully");
+    localStorage.removeItem("UserLogged");
+    localStorage.removeItem("Access_Token");
+    window.location.reload();
   };
 
   return (
@@ -93,39 +87,41 @@ export default function Watchlist({
       </div>
 
       <div className="coins_collection">
-            {coins.length > 0 ? (
-                coins?.map((coin, key) => (
-                    <div className="added-coin" key={key}>
-                    <img
-                    src={coin?.image}
-                    alt={coin?.name}
-                    className="added-coin-image"
-                    />
+        {coins.length > 0 ? (
+          coins?.map((coin, key) => (
+            <div className="added-coin" key={key}>
+              <img
+                src={coin?.image}
+                alt={coin?.name}
+                className="added-coin-image"
+              />
 
-                    <div className="added-coin-details">
-                    <div className="added-coin-info">
-                        <p className="added-coin-name">{coin?.name}</p>
-                        <span className="added-coin-symbol">{coin?.symbol}</span>
-                    </div>
-
-                    <div className="added-coin-price">
-                        <span>
-                        {coin?.currency} {numberWithCommas(coin?.price)}
-                        </span>
-                    </div>
-                    </div>
-
-                    <div className="added-coin-remove-btn">
-                    <FaTrash onClick={() => remove_coin_from_watchlsit(coin?.name)} />
-                    </div>
+              <div className="added-coin-details">
+                <div className="added-coin-info">
+                  <p className="added-coin-name">{coin?.name}</p>
+                  <span className="added-coin-symbol">{coin?.symbol}</span>
                 </div>
-                ))
-                ) : (
-                    <div className="empty_msg">
-                <p className="message">Add Coins</p>
+
+                <div className="added-coin-price">
+                  <span>
+                    {coin?.currency} {numberWithCommas(coin?.price)}
+                  </span>
                 </div>
-            )}
-        </div>
+              </div>
+
+              <div className="added-coin-remove-btn">
+                <FaTrash
+                  onClick={() => remove_coin_from_watchlsit(coin?.name)}
+                />
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="empty_msg">
+            <p className="message">Add Coins</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

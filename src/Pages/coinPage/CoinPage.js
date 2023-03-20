@@ -18,7 +18,7 @@ export default function CoinPage({
   const params = useParams();
   const [tooltip, setTooltip] = useState(false);
   const [coin, setCoin] = useState({});
-  const { token, coins, darkMode } = useContext(userContext);
+  const { coins, darkMode } = useContext(userContext);
 
   const URL = `https://api.coingecko.com/api/v3/coins/${params.id}`;
 
@@ -65,7 +65,7 @@ export default function CoinPage({
           {
             cryptos: coin_to_add,
           },
-          { headers: { Authorization: token } }
+          { headers: { Authorization: localStorage.getItem("Access_Token") } }
         )
         .then((res) => {
           toast.success(`${coin?.name} Added To Watchlist`);
@@ -87,7 +87,7 @@ export default function CoinPage({
             },
           },
           {
-            headers: { Authorization: token },
+            headers: { Authorization: localStorage.getItem("Access_Token") },
           }
         )
         .then((res) => {

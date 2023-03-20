@@ -22,7 +22,7 @@ function App() {
   let currencies = ["INR", "USD", "EUR", "CNY", "RUB"];
   const [currency, setCurreny] = useState("INR");
   const [symbol, setSymbol] = useState("₹");
-  const { dispatch, token, darkMode, coins } = useContext(userContext);
+  const { dispatch, darkMode, coins } = useContext(userContext);
   const [addedCoin, setAddedCoin] = useState([]);
 
   useEffect(() => {
@@ -41,11 +41,11 @@ function App() {
 
   // Get the watchlist coins
   const get_watchlist_coins = async () => {
-    if (token) {
+    if (localStorage.getItem("Access_Token")) {
       try {
         await axios
           .get(`https://cryptoindex-backend.onrender.com/api/getCoins`, {
-            headers: { Authorization: token },
+            headers: { Authorization: localStorage.getItem("Access_Token")},
           })
           .then((res) => {
             dispatch({ type: "GET_COINS", payload: res.data.coins });
@@ -58,10 +58,10 @@ function App() {
   };
 
   useEffect(() => {
-    if (token) {
+    if (localStorage.getItem("Access_Token")) {
       get_watchlist_coins();
     }
-  }, [token]);
+  }, [localStorage.getItem("Access_Token")]);
 
   useEffect(() => {
     if (coins?.length !== addedCoin?.length) {
@@ -69,36 +69,16 @@ function App() {
     }
   }, [coins?.length, addedCoin?.length]);
 
-  // API call to create a login session
-  useEffect(() => {
-    const get_token = async () => {
-      await axios
-        .post(`https://cryptoindex-backend.onrender.com/api/refreshToken`, {
-          headers: { Authorization: localStorage.getItem("Access_Token") }
-        })
-        .then((res) => {
-          dispatch({ type: "GET_TOKEN", payload: res.data.token });
-        });
-    };
-    try {
-      if (localStorage.getItem("Access_Token")) {
-        get_token();
-      }
-    } catch (error) {
-      toast.error(error.response.data.msg);
-    }
-  }, []);
-
   // Set Up T Watchlist
   useEffect(() => {
     const setUpWatchlist = async () => {
       try {
-        if (token) {
+        if (localStorage.getItem("Access_Token")) {
           await axios.post(
             `https://cryptoindex-backend.onrender.com/api/create`,
             [],
             {
-              headers: { Authorization: token },
+              headers: { Authorization: localStorage.getItem("Access_Token") },
             }
           );
         }
@@ -107,20 +87,19 @@ function App() {
       }
     };
     setUpWatchlist();
-  }, [token]);
+  }, [localStorage.getItem("Access_Token")]);
 
   // API Call To Get The User Information
   useEffect(() => {
     const getUser = async () => {
-      if (token) {
+      if (localStorage.getItem("Access_Token")) {
         try {
           await axios
             .get(`https://cryptoindex-backend.onrender.com/api/userInfo`, {
-              headers: { Authorization: token },
+              headers: { Authorization: localStorage.getItem("Access_Token") },
             })
             .then((res) => {
               dispatch({ type: "GET_USER", payload: res.data.userInfo });
-              // localStorage.removeItem("Access_Token");
             });
         } catch (error) {
           toast.error(error.response.data.msg);
@@ -128,7 +107,7 @@ function App() {
       }
     };
     getUser();
-  }, [token]);
+  }, [localStorage.getItem("Access_Token")]);
 
   return (
     <div className={darkMode ? "light" : "dark"}>
