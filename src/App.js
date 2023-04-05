@@ -39,6 +39,10 @@ function App() {
     }
   }, [currency]);
 
+  useEffect(() => {
+    axios.get(`https://cryptoindex-frontend.onrender.com/api/connect`)
+  }, [])
+
   // Get the watchlist coins
   const get_watchlist_coins = async () => {
     if (localStorage.getItem("Access_Token")) {
