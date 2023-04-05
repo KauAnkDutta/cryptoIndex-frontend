@@ -11,7 +11,6 @@
 
 .verify-container-light{
     background: rgb(241, 228, 228);
-    border: 3px solid black;
 }
 
 .verify{
@@ -54,6 +53,7 @@
 
 .otp-input-light{
     background: darkgray;
+
 }
 
 .otp-input::placeholder{
@@ -120,6 +120,7 @@
         width: 100%;
         background: transparent;
         box-shadow: none;
+        border: none;
     }
 
     .verify-heading{
@@ -129,19 +130,16 @@
 
     .otp-description{
         padding: 20px;
-        font-size: 25px;
+        font-size: 16px;
     }
 
     .otp-input{
         width: 40px;
         height: 40px;
         background: white;
-        color: white;
+        color: black;
     }
 
-    .otp-input-light{
-        background: rgb(146, 143, 143);
-    }
 
     .time{
         color: rgb(12, 12, 16);
@@ -163,7 +161,7 @@
     }
 }
 
-@media screen and (max-width: 290px){
+@media screen and (max-width: 299px){
     .verify-container{
         margin: 0;
     }
@@ -174,9 +172,9 @@
     }
 
     .otp-description{
-        padding: 10px;
-        font-size: 20px;
+        font-size: 14px;
     }
+
 
     .otp-input{
         width: 35px;

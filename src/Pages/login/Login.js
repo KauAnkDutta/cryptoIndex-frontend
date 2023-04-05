@@ -8,7 +8,7 @@ import { CircularProgress } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
   const [loading, setLoading] = useState(false);
   const { darkMode } = useContext(userContext);
   const navigate = useNavigate();

@@ -109,7 +109,8 @@ export default function Verify() {
 
         <p className="otp-description">
           We have sent a verification code to your email -{" "}
-          {localStorage.getItem("email") ? localStorage.getItem("email") : ""}
+          {/* <span>{localStorage.getItem("email") ? localStorage.getItem("email") : ""}</span> */}
+          <span>dutta.kasuhik1998@gmail.com</span>
         </p>
       </div>
 
